@@ -1,0 +1,9 @@
+
+<div class="form d-flex flex-column justify-content-center align-items-center ">
+  <form class="container-fluid w-100 mx-auto" (ngSubmit)="login()" [formGroup]="loginForm">
+     <app-input  formControlName="email"></app-input>
+     <span class="text-xs mr-4 float-end mb-2 black-white-text">forget password ?</span>
+
+    </form>
+    <button class="btn btn-danger float-end mt-5 w-100" type="submit">log</button>
+</div>

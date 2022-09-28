@@ -1,0 +1,26 @@
+<form [formGroup]="form" class="d-flex flex-column w-100">
+  <mat-form-field class="">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput formControlName="email" [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
+  </mat-form-field>
+  <ng-container *ngIf="form.controls['email'] as email">
+    <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+    Please enter a valid email address
+  </mat-error>
+  <mat-error *ngIf="email.hasError('required') && email.touched">Email is <strong>required</strong>
+  </mat-error>
+  </ng-container>
+
+  <mat-form-field >
+    <mat-label>Passwrod</mat-label>
+    <input type="password" matInput formControlName="password" [errorStateMatcher]="matcher" placeholder="Enter your Pasword">
+  </mat-form-field>
+
+  <ng-container *ngIf="form.controls['password'] as password">
+    <mat-error *ngIf="password.hasError('touched') || password.hasError('minlength')">
+      your password is 8 Chracters Minimum
+  </mat-error>
+  <mat-error *ngIf="password.hasError('required') && password.touched">password is <strong>required</strong>
+  </mat-error>
+  </ng-container>
+</form>
